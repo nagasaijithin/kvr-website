@@ -1,3 +1,18 @@
+$laptop: 1050px;
+$laptop2: 1070px;
+$tablarge: 910px;
+$tabmid: 884px;
+$tabsmal: 772px;
+$tabsmal2: 742px;
+$mobilelarge: 674px;
+$mobilelarge2: 637px;
+$mobilemid: 500px;
+$mobilemid2: 425px;
+$mobilesmal: 375px;
+$mobilesmal2: 320px;
+$bar-color: #fff;
+$ball-color: #fff;
+$bg-color: #ce0b55;
 * {
   padding: 0;
   margin: 0;
@@ -10,6 +25,16 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
+
+  @media (max-width: ($laptop)) {
+    font-size: 55.5%;
+  }
+  @media (max-width: ($tablarge)) {
+    font-size: 53.5%;
+  }
+  @media (max-width: ($mobilesmal2)) {
+    font-size: 45.5%;
+  }
 }
 body {
   font-family: "Roboto", sans-serif;
@@ -28,11 +53,37 @@ a {
     url("../assets/hero-img-try5.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-
+  @media (max-width: ($tabsmal)) {
+    background-position: center;
+  }
   & > nav {
     height: 12vh;
 
-    & > ul {
+    & > .mbl-nav {
+      justify-content: space-between;
+      padding: 1rem 3rem;
+      list-style: none;
+      display: none;
+      height: 100%;
+      @media (max-width: ($mobilelarge2)) {
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+      & > .mbl-c1 {
+        width: 31%;
+        & > img {
+          width: 100%;
+        }
+      }
+      & > .mbl-c2 {
+        color: inherit;
+        font-size: 5rem;
+        transform: rotate(90deg);
+        cursor: pointer;
+      }
+    }
+    & > .destp-nav {
       display: flex;
       list-style: none;
       justify-content: space-around;
@@ -40,6 +91,17 @@ a {
       font-size: 2.5rem;
       color: inherit;
       height: 100%;
+      @media (max-width: ($tablarge)) {
+        justify-content: space-around;
+      }
+      & > .logo-wapper {
+        @media (max-width: ($tabmid)) {
+          width: 12%;
+        }
+      }
+      @media (max-width: ($mobilelarge2)) {
+        display: none;
+      }
       & > li {
         display: flex;
         justify-content: center;
@@ -50,6 +112,9 @@ a {
         }
         & > img {
           width: 35%;
+          @media (max-width: ($tabmid)) {
+            width: 100%;
+          }
         }
       }
     }
@@ -60,17 +125,29 @@ a {
     align-items: center;
     justify-content: space-around;
     height: 90%;
-
     font-size: 2.5rem;
     color: white;
-    // & > h1 {
-    //   margin: 1.5rem 0;
-    // }
+
+    @media (max-width: ($mobilelarge)) {
+      font-size: 2.2rem;
+    }
+    @media (max-width: ($mobilemid)) {
+      font-size: 2rem;
+    }
+    @media (max-width: ($mobilemid2)) {
+      margin: 2rem;
+    }
+    @media (max-width: ($tabsmal)) {
+      height: 81%;
+    }
     & > .main-header-content-title {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      @media (max-width: ($mobilesmal)) {
+        margin: 2rem 0 0 2rem;
+      }
       & > a {
         align-self: flex-start;
         margin: 2rem 0;
@@ -81,9 +158,32 @@ a {
       background-color: #fff;
       box-shadow: 0px 0px 10px -10px black;
       transition: all 0.4s ease-in;
+      color: #3f3f3f;
+      cursor: pointer;
       &:hover {
+        background: #ce0b55;
+        color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        & > form {
+          & > div {
+            & > h2 {
+              color: white;
+            }
+            & > label,
+            input {
+              color: white;
+              border-color: white;
+            }
+          }
+          & > .btn2 {
+            color: #3f3f3f;
+            background-color: white;
+          }
+        }
+      }
+      @media (max-width: ($tabmid)) {
+        display: none;
       }
 
       .form2 {
@@ -125,20 +225,76 @@ a {
   color: #3f3f3f;
   display: flex;
   flex-direction: column;
-
+  & > section {
+    padding: 9rem 0 0;
+  }
   & > .aboutus {
     display: flex;
     font-size: 2rem;
     justify-content: space-around;
+    @media (max-width: ($tabmid)) {
+      margin: 8rem 0;
+      font-size: 2.5rem;
+    }
+
     & > div:nth-child(1) {
       flex-basis: 52%;
+      @media (max-width: ($tabmid)) {
+        flex-basis: 80%;
+      }
+      @media (max-width: ($mobilelarge)) {
+        flex-basis: 95%;
+      }
       & > h2 {
         font-size: 4rem;
       }
     }
-    & > div:nth-child(2) {
+    & > .about-img-wapper {
       text-align: center;
       flex-basis: 40%;
+      @media (max-width: ($tabmid)) {
+        display: none;
+      }
+      & > img {
+        width: 64%;
+      }
+    }
+  }
+
+  .qu-pay-main-wapper {
+    @media (max-width: ($tabmid)) {
+      flex-wrap: wrap;
+    }
+    & > .qu-pay-content-wapper {
+      flex-basis: 52%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 2rem;
+      & > * {
+        margin: revert;
+      }
+      & > p {
+        font-size: 2.5rem;
+      }
+      & > ul {
+        list-style-position: inside;
+        font-size: 2.5rem;
+      }
+    }
+    & > .qu-pay-img-wapper {
+      text-align: center;
+      flex-basis: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media (max-width: ($tabmid)) {
+        flex-basis: 55%;
+      }
+      @media (max-width: ($tabsmal2)) {
+        flex-basis: 70%;
+        margin: 4rem 0;
+      }
       & > img {
         width: 64%;
       }
@@ -150,19 +306,22 @@ a {
   font-size: 3rem;
   width: 51%;
   margin: 2rem 0;
+  @media (max-width: ($mobilemid2)) {
+    width: 85%;
+  }
 }
 
 .btn {
   padding: 1rem 3rem;
-  background-color: white;
+  background-color: #3f3f3f;
   border-radius: 51px;
   text-decoration: none;
-  color: #3f3f3f;
+  color: white;
   box-shadow: 3px 3px 10px -5px rgb(0 0 0 / 49%);
   transition: all 0.4s ease-in;
   &:hover {
     color: white;
-    background-color: #3f3f3f;
+    background-color: #ce0b55;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 }
@@ -184,19 +343,25 @@ a {
   & > .contact-content-wapper {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: ($tabsmal)) {
+      flex-direction: column;
+    }
     & > .contact-content-continer {
       font-size: 2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      @media (max-width: ($tabsmal)) {
+        margin: 4rem 0;
+      }
       & > .info-continer {
         & > * {
           margin: 2.5rem 0;
         }
         & > div {
           display: flex;
-          justify-content: space-between;
-
+          align-items: center;
           & > a {
             color: #3f3f3f;
             &:hover {
@@ -220,8 +385,17 @@ a {
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: ($laptop2)) {
+        flex-basis: 40%;
+      }
+      @media (max-width: ($tabsmal)) {
+        height: 40vh;
+      }
       & > iframe {
         height: 100%;
+        @media (max-width: ($laptop2)) {
+          width: 100%;
+        }
       }
     }
   }
@@ -263,26 +437,10 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  & > .footer-img-wapper {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  color: white;
+  & > div > a {
+    padding: 0 1rem;
     color: white;
-    font-size: 1.2rem;
-  }
-
-  & > .footer-links {
-    display: flex;
-    font-size: 2rem;
-    align-items: center;
-    height: 100%;
-    justify-content: space-evenly;
-    flex-basis: 50%;
-    & > a {
-      color: white;
-      text-decoration: none;
-    }
   }
 }
 
@@ -297,11 +455,13 @@ footer {
       margin: 1rem;
       box-shadow: 1px 1px 15px -5px #3e3e3e;
       transition: all 0.4s ease-in;
-      border: 2px solid #393939;
-      background-color: white;
+      background-color: #ce0b55;
+      color: white;
       &:hover {
         box-shadow: 0 4px 8px 0 rgb(0 0 0 / 21%),
           0px 7px 20px 0 rgb(0 0 0 / 32%);
+        background-color: #800080;
+        color: white;
       }
       & > * {
         margin: 2rem 0;
@@ -316,7 +476,7 @@ footer {
       }
       & > div:nth-child(3) {
         padding: 2rem;
-        background-color: white;
+
         text-align: center;
         font-size: 2.3rem;
         font-weight: 700;
@@ -328,6 +488,8 @@ footer {
         & > ul {
           list-style-type: square;
           list-style-position: inside;
+          list-style-position: outside;
+          padding: 1rem;
           & > li {
             margin: 1rem;
           }
@@ -339,54 +501,89 @@ footer {
 
 .mbl-eqf-wapper {
   position: fixed;
-  right: -30%;
-  background: white;
+  right: -100%;
+  background: #ce0b55;
   height: 100vh;
   padding: 5rem;
   transition: all 0.4s ease-in;
   z-index: 10;
+  top: 0;
+  color: white;
 
   & > .mbl-cancel-btn {
     display: inline-block;
     font-size: 2rem;
     padding: 0.5rem 1rem;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     cursor: pointer;
   }
   & > .mbl-form-continer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 92%;
+    & > .form2 {
+      & > div {
+        & > input {
+          color: white;
+          border-color: white;
+        }
+      }
+      & > button {
+        background: white;
+        color: #393939;
+      }
+    }
   }
 }
 .in {
   right: 0;
+  top: 0;
 }
 .out {
-  right: -30%;
+  right: -100%;
 }
 
 .mbl-eqf-active-btn {
   position: fixed;
   color: white;
   padding: 2rem;
-  right: -4%;
+  right: -6%;
   transform: rotate(-90deg) translate(-0%, -4%);
   background: black;
-  top: 50%;
+  top: 30%;
   cursor: pointer;
   margin: 0;
   font-size: 1.5rem;
   border-radius: 25px 25px 0px 0px;
+  display: none;
+  @media (max-width: ($tabmid)) {
+    display: block;
+  }
+  @media (max-width: ($mobilelarge)) {
+    right: -8%;
+  }
+  @media (max-width: ($mobilemid)) {
+    right: -10%;
+  }
+  @media (max-width: ($mobilesmal2)) {
+    right: -14%;
+  }
+  @media (max-width: ($mobilesmal)) {
+    right: -12%;
+  }
+  @media (max-width: ($mobilemid2)) {
+    right: -13%;
+  }
 }
 
 .fixed-nav {
   position: fixed;
   width: 100%;
-  background: #fff;
-  color: #393939;
+  background: #800080;
+  color: white;
   box-shadow: 1px 1px 10px black;
+  top: 0;
 }
 
 .nrml-nav {
@@ -399,4 +596,238 @@ footer {
   right: 1%;
   top: 85%;
   z-index: 6;
+}
+
+.mble-hide-links {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  top: -150%;
+  transition: all 0.5s ease-in;
+  & > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 84%;
+    font-size: 3rem;
+    list-style: none;
+    font-weight: 700;
+    & > li > a {
+      text-decoration: none;
+      color: #393939;
+    }
+  }
+}
+
+.mble-show-tab {
+  top: 10%;
+  transition: all 0.5s ease-in;
+}
+
+.fa-building {
+  color: #ce0b55;
+}
+
+.fa-phone {
+  color: purple;
+}
+
+.fa-envelope-open-text {
+  color: #3393f5;
+}
+
+/////////////////////////////
+////////// loading
+////////////////////////////
+
+.loading-wapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: $bg-color;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  transition: all 0.4s ease-out;
+}
+.loading-wapper-fideout {
+  opacity: 0;
+}
+.loading-wapper-hide {
+  display: none;
+}
+.loader {
+  position: relative;
+  width: 75px;
+  height: 100px;
+
+  &__bar {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 50%;
+    background: $bar-color;
+    transform-origin: center bottom;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        left: ($i - 1) * 15px;
+        transform: scale(1, $i * 0.2);
+        animation: barUp#{$i} 4s infinite;
+      }
+    }
+  }
+
+  &__ball {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: $ball-color;
+    border-radius: 50%;
+    animation: ball 4s infinite;
+  }
+}
+
+@keyframes ball {
+  0% {
+    transform: translate(0, 0);
+  }
+  5% {
+    transform: translate(8px, -14px);
+  }
+  10% {
+    transform: translate(15px, -10px);
+  }
+  17% {
+    transform: translate(23px, -24px);
+  }
+  20% {
+    transform: translate(30px, -20px);
+  }
+  27% {
+    transform: translate(38px, -34px);
+  }
+  30% {
+    transform: translate(45px, -30px);
+  }
+  37% {
+    transform: translate(53px, -44px);
+  }
+  40% {
+    transform: translate(60px, -40px);
+  }
+  50% {
+    transform: translate(60px, 0);
+  }
+  57% {
+    transform: translate(53px, -14px);
+  }
+  60% {
+    transform: translate(45px, -10px);
+  }
+  67% {
+    transform: translate(37px, -24px);
+  }
+  70% {
+    transform: translate(30px, -20px);
+  }
+  77% {
+    transform: translate(22px, -34px);
+  }
+  80% {
+    transform: translate(15px, -30px);
+  }
+  87% {
+    transform: translate(7px, -44px);
+  }
+  90% {
+    transform: translate(0, -40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes barUp1 {
+  0% {
+    transform: scale(1, 0.2);
+  }
+  40% {
+    transform: scale(1, 0.2);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  90% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1, 0.2);
+  }
+}
+@keyframes barUp2 {
+  0% {
+    transform: scale(1, 0.4);
+  }
+  40% {
+    transform: scale(1, 0.4);
+  }
+  50% {
+    transform: scale(1, 0.8);
+  }
+  90% {
+    transform: scale(1, 0.8);
+  }
+  100% {
+    transform: scale(1, 0.4);
+  }
+}
+@keyframes barUp3 {
+  0% {
+    transform: scale(1, 0.6);
+  }
+  100% {
+    transform: scale(1, 0.6);
+  }
+}
+@keyframes barUp4 {
+  0% {
+    transform: scale(1, 0.8);
+  }
+  40% {
+    transform: scale(1, 0.8);
+  }
+  50% {
+    transform: scale(1, 0.4);
+  }
+  90% {
+    transform: scale(1, 0.4);
+  }
+  100% {
+    transform: scale(1, 0.8);
+  }
+}
+@keyframes barUp5 {
+  0% {
+    transform: scale(1, 1);
+  }
+  40% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1, 0.2);
+  }
+  90% {
+    transform: scale(1, 0.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
